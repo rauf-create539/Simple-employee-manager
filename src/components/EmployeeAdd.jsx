@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+
 const EmployeeAdd = ({ onAdd }) => {
 
     const [employeeName, setEmployeeName] = useState("");
@@ -14,7 +15,7 @@ const EmployeeAdd = ({ onAdd }) => {
 
         const newEmployees = {
         id: Date.now(),
-        name: employeeName,
+        employeeName,
         position, 
         salaryPerMonth
     };
@@ -30,25 +31,36 @@ const EmployeeAdd = ({ onAdd }) => {
 
 
   return (
-    <div>
+    <div  className='flex gap-4'>
 
         <div>
             <input
+            value={employeeName}
             type='text'
+            onChange={(e) => setEmployeeName(e.target.value)}
             placeholder='Enter New Employee Name '/>
         </div>
 
         <div>
             <input
+            value={position}
             type='text'
+            onChange={(e) => setPosition(e.target.value)}
             placeholder='Enter Company Position '/>
         </div>
 
         <div>
             <input 
+            value={salaryPerMonth}
             type='text'
+            onChange={(e) => setSalaryPerMonth(e.target.value)}
             placeholder='Enter Salary Per Month'/>
         </div>
+
+        <button onClick={handleAdd}
+        className='bg-green-500 p-2 w-[250px]'>
+            + Add Employee
+        </button>
     </div>
   )
 }

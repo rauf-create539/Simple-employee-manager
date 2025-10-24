@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import EmployeeAdd from './EmployeeAdd';
+import EmployeeItem from './EmployeeItem';
 
 const EmployeeList = () => {
 
@@ -21,8 +22,17 @@ const EmployeeList = () => {
         <EmployeeAdd onAdd={addEmployees} />
 
         <div>
-
+            <table>
+                {employees.length === 0 ? (
+                    <p className='text-gray-400 text-center'>No employees yet</p>
+                ) : (
+                    employees.map((employee, index) => (
+                        <EmployeeItem key={index} employee={employee} onDelete={() => deleteTask(index)} />
+                    ))
+                )}
+            </table>
         </div>
+        
     </div>
   )
 }
