@@ -1,27 +1,25 @@
 import React from 'react'
 
-const EmployeeItem = ({ employee, onDelete }) => {
+const EmployeeItem = ({ employee, onDelete, onUpdate }) => {
   return (
-    <div>
-
-            <tr className='p-2 bg-gray-400 w-[400px]'>
-                <th>Employee name</th>
-                <th>Position</th>                
-                <th>Salary per month</th>
-                <th>Action</th>
-            </tr>
-
             <tr>
-                <td>{employee.employeeName}</td>
-                <td>{employee.position}</td>
-                <td>{employee.salaryPerMonth} </td>                
-                <td>         <button
+                <td className='border p-2 text-center'>{employee.employeeName}</td>
+                <td className='border p-2 text-center'>{employee.position}</td>
+                <td className='border p-2 text-center'>{employee.salaryPerMonth} </td>                
+                <td className='border p-2 flex gap-3 justify-around'>        
+                                <button
+                                    onClick={onUpdate}
+                                    className='bg-green-500 p-2 w-[180px]'>
+                                        edit
+                                </button>   
+                               
+                               <button
                                     onClick={onDelete}
-                                    className='bg-red-500 p-2 w-[250px]'>
+                                    className='bg-red-500 p-2 w-[180px]'>
                                         delete
-                                </button></td>
+                                </button>                             
+                              </td>                           
             </tr>
-    </div>
   )
 }
 
